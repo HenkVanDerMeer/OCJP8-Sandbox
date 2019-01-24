@@ -84,7 +84,7 @@ public class Tiger implements Sprint {
 }
 ```
 
-The annotation `@FunctionalInterface` is optional.
+The annotation `@FunctionalInterface` is optional, but will throw an exception if the interface is not a functional interface.
 
 #### 3. Describe a lambda expression; refactor the code that uses an anonymous inner class to use a lambda expression; describe type inference and target typing
 A *lambda expression* is a block of code that gets passed around, like an anonymous method.
