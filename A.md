@@ -73,7 +73,16 @@ A *functional interface* is an interface with exactly one abstract method. It is
 
 Example:
 
-...
+```
+@FunctionalInterface
+public interface Sprint {
+   public void sprint(Animal animal);
+}
+public class Tiger implements Sprint {
+   public void sprint (Animal animal) {
+   System.out.println("Animal " + animal.toString() + " is sprinting fast");
+}
+```
 
 The annotation `@FunctionalInterface` is optional.
 
