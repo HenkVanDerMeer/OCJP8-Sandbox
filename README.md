@@ -1,5 +1,5 @@
 # OCJP8-Sandbox
-Summary with several code snippets to prepare for the Oracle exam <a href="https://education.oracle.com/product/pexam_1Z0-810">Upgrade Java SE 7 to Java SE 8 OCP Programmer</a>
+Summary with several code snippets to prepare for the Oracle exam <a href="https://education.oracle.com/product/pexam_1Z0-810" target="_blank">Upgrade Java SE 7 to Java SE 8 OCP Programmer</a>
 
 #### [A. Lambda Expressions](A.md)
 #### [B. Java Collections and Streams with Lambdas](B.md)	
