@@ -29,9 +29,11 @@ public class Eagle implements Fly {
    }
 }
 ```
-...
+
 #### 2. Define and use a default method of an interface and describe the inheritance rules for the default method
-...
+_Default methods_ are additional methods in an interface that are automatically available in the implementations; see `land()` method in previous example.
+
+Note: Java fails to compile if a class or interface inherits two `default` methods with the same signature and does not provide its own implementation.
 
 ---
 Back to [index](README.md)
