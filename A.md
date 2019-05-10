@@ -92,6 +92,14 @@ A *lambda expression* is a block of code that gets passed around, like an anonym
 * An arrow operator `->`
 * The body calling a single method and returning the result of that method; curly braces are optional, unless the body contains more than one statement. In that case all statements must end with a semicolon.
 
+Examples:
+```
+() -> new Duck()
+d -> {return d.quack();}
+(Duck d) -> d.quack()
+(Animal a, Duck d) -> d.quack()
+```
+
 ...
 
 ---
