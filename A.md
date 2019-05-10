@@ -98,9 +98,11 @@ Examples:
 d -> {return d.quack();}
 (Duck d) -> d.quack()
 (Animal a, Duck d) -> d.quack()
+(y, z) -> {int x=1; return y+10; }
+(String s, int z) -> { return s.length()+z; }
+(a, b, c) -> a.getName()
 ```
-
-...
+... <to do: ch. 4>
 
 ---
 Back to [index](README.md)
