@@ -90,7 +90,7 @@ The annotation `@FunctionalInterface` is optional, but will throw an exception i
 A *lambda expression* is a block of code that gets passed around, like an anonymous method. It has 3 parts:
 * A parameter list containing zero or more parameters; parameter types are optional, the list is wrapped in parentheses that can be omitted only if there is exactly one parameter and the parameter type is not specified
 * An arrow operator `->`
-* The body calling a single method and returning the result of that method.
+* The body calling a single method and returning the result of that method; curly braces are optional, unless the body contains more than one statement. In that case all statements must end with a semicolon.
 
 ...
 
