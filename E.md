@@ -68,6 +68,15 @@ Back to [index](README.md)
 #### 1. Describe the interfaces of the [java.util.function](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html) package
 ...
 #### 2. Develop code that uses the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface
+The `Function` interface takes a value of any type and returns a value of any (possibly the same) type.
+
+<code>
+@FunctionalInterface
+public interface Function <T, R> {
+    R apply(T t);
+}
+</code>
+
 ...
 #### 3. Develop code that uses the [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) interface
 ...
