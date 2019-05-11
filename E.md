@@ -80,6 +80,30 @@ Back to [index](README.md)
 #### 7. Develop code that uses the primitive and binary variations of the base interfaces of the java.util.function package
 ...
 #### 8. Develop code that uses a method reference, including refactoring a lambda expression to a method reference
+A _method reference_ is a compact lambda expression for referring to an existing method.
+There are four types of method references:
+<table>
+    <tr>
+        <th>Method reference type</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>Reference to a static method</td>
+        <td><code>ContainingClass::staticMethodName</code></td>
+    </tr>
+    <tr>
+        <td>Reference to an instance method of a particular type</td>
+        <td><code>containingObject::instanceMethodName</code></td>
+    </tr>
+    <tr>
+        <td>Reference to an instance method of an arbitrary method of a particular type</td>
+        <td><code>ContainingType::methodName</code></td>
+    </tr>
+    <tr>
+        <td>Reference to a constructor</td>
+        <td><code>Classname::new</code></td>
+    </tr>
+</table>
 ...
 
 ---
