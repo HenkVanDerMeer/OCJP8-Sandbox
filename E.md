@@ -71,22 +71,63 @@ Back to [index](README.md)
 #### 2. Develop code that uses the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface
 The `Function` interface takes a value of any type and returns a value of any (possibly the same) type.
 
+Example: [FunctionTest](src/main/java/E/FunctionTest.java)
+
 <code>
 @FunctionalInterface
-public interface Function <T, R> {
+public interface Function<T, R> {
     R apply(T t);
 }
 </code>
 
-...
 #### 3. Develop code that uses the [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) interface
-...
+The `Consumer` interface takes a single value of any type and returns `void`.
+
+Example: [ConsumerTest](src/main/java/E/ConsumerTest.java)
+
+<code>
+@FunctionalInterface
+public interface Consumer<T> {
+    void accept(T t);
+}
+</code>
+
 #### 4. Develop code that uses the [Supplier](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html) interface
-...
+The `Supplier` interface supplies values without taking any input.
+
+Example: [SupplierTest](src/main/java/E/SupplierTest.java)
+
+<code>
+@FunctionalInterface
+public interface Supplier<T> {
+    T get();
+}
+</code>
+
 #### 5. Develop code that uses the [UnaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html) interface
-...
+The `UnaryOperator` interface takes any type and returns a value of the same type (for example: incrementing by 1).
+
+Example: [UnaryOperatorTest](src/main/java/E/UnaryOperatorTest.java)
+
+<code>
+@FunctionalInterface
+public interface UnaryOperator<T> {
+    T apply (T t);
+}
+</code>
+
 #### 6. Develop code that uses the [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) interface
-...
+The `Predicate` interface takes any type and returns a boolean.
+
+Example: [PredicateTest](src/main/java/E/PredicateTest.java)
+
+<code>
+@FunctionalInterface
+public interface Predicate<T> {
+    Boolean test(T t);
+}
+</code>
+
 #### 7. Develop code that uses the primitive and binary variations of the base interfaces of the java.util.function package
 ...
 #### 8. Develop code that uses a method reference, including refactoring a lambda expression to a method reference
