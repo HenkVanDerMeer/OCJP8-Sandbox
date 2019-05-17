@@ -67,68 +67,112 @@ Back to [index](README.md)
     </tr>
 </table>
 
-...
 #### 2. Develop code that uses the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface
 The `Function` interface takes a value of any type and returns a value of any (possibly the same) type.
 
 Example: [FunctionTest](src/main/java/E/FunctionTest.java)
 
-<code>
+<pre>
 @FunctionalInterface
 public interface Function<T, R> {
     R apply(T t);
 }
-</code>
+</pre>
 
 #### 3. Develop code that uses the [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) interface
 The `Consumer` interface takes a single value of any type and returns `void`.
 
 Example: [ConsumerTest](src/main/java/E/ConsumerTest.java)
 
-<code>
+<pre>
 @FunctionalInterface
 public interface Consumer<T> {
     void accept(T t);
 }
-</code>
+</pre>
 
 #### 4. Develop code that uses the [Supplier](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html) interface
 The `Supplier` interface supplies values without taking any input.
 
 Example: [SupplierTest](src/main/java/E/SupplierTest.java)
 
-<code>
+<pre>
 @FunctionalInterface
 public interface Supplier<T> {
     T get();
 }
-</code>
+</pre>
 
 #### 5. Develop code that uses the [UnaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html) interface
 The `UnaryOperator` interface takes any type and returns a value of the same type (for example: incrementing by 1).
 
 Example: [UnaryOperatorTest](src/main/java/E/UnaryOperatorTest.java)
 
-<code>
+<pre>
 @FunctionalInterface
-public interface UnaryOperator<T> {
+public interface UnaryOperator<T> extends Function<T, T> {
     T apply (T t);
 }
-</code>
+</pre>
 
 #### 6. Develop code that uses the [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) interface
 The `Predicate` interface takes any type and returns a boolean.
 
 Example: [PredicateTest](src/main/java/E/PredicateTest.java)
 
-<code>
+<pre>
 @FunctionalInterface
 public interface Predicate<T> {
     Boolean test(T t);
 }
-</code>
+</pre>
 
 #### 7. Develop code that uses the primitive and binary variations of the base interfaces of the java.util.function package
+The functional interfaces `Consumer`, `Predicate`, `Function` and `Operator` all have variants that take 2 parameters instead of 1:
+- `BiConsumer`
+
+<pre>
+@FunctionalInterface
+public interface BiConsumer<T, U> {
+    void accept(T t, U u);
+} 
+</pre>
+
+Example: [BiConsumerTest](src/main/java/E/BiConsumerTest.java)
+
+- `BiPredicate`
+
+<pre>
+@FunctionalInterface
+public interface BiPredicate<T, U> {
+    Boolean test (T t, U u);
+}
+</pre>
+
+Example: [BiPredicateTest](src/main/java/E/BiPredicateTest.java)
+
+- `BiFunction`
+
+<pre>
+@FunctionalInterface
+public interface BiFunction<T, U, R> {
+    R apply (T t, U u);
+}
+</pre>
+
+Example: [BiFunctionTest](src/main/java/E/BiFunctionTest.java)
+
+- `BinaryOperator`
+
+<pre>
+@FunctionalInterface
+public interface BinaryOperator<T, T> {
+    T apply (T t1, T t2);
+}
+</pre>
+ 
+Example: [BinaryOperatorTest](src/main/java/E/BinaryOperatorTest.java)
+
 ...
 #### 8. Develop code that uses a method reference, including refactoring a lambda expression to a method reference
 A _method reference_ is a compact lambda expression for referring to an existing method.
@@ -136,7 +180,7 @@ There are four types of method references:
 <table>
     <tr>
         <th>Method reference type</th>
-        <th>Example</th>
+        <th>Format</th>
     </tr>
     <tr>
         <td>Reference to a static method</td>
