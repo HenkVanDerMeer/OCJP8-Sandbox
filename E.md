@@ -74,7 +74,7 @@ Example: [FunctionTest](src/main/java/E/FunctionTest.java)
 
 <pre>
 @FunctionalInterface
-public interface Function<T, R> {
+public interface Function&lt;T, R&gt; {
     R apply(T t);
 }
 </pre>
@@ -86,7 +86,7 @@ Example: [ConsumerTest](src/main/java/E/ConsumerTest.java)
 
 <pre>
 @FunctionalInterface
-public interface Consumer<T> {
+public interface Consumer&lt;T&gt; {
     void accept(T t);
 }
 </pre>
@@ -98,7 +98,7 @@ Example: [SupplierTest](src/main/java/E/SupplierTest.java)
 
 <pre>
 @FunctionalInterface
-public interface Supplier<T> {
+public interface Supplier&lt;T&gt; {
     T get();
 }
 </pre>
@@ -110,7 +110,7 @@ Example: [UnaryOperatorTest](src/main/java/E/UnaryOperatorTest.java)
 
 <pre>
 @FunctionalInterface
-public interface UnaryOperator<T> extends Function<T, T> {
+public interface UnaryOperator&lt;T&gt; extends Function&lt;T, T&gt; {
     T apply (T t);
 }
 </pre>
@@ -122,7 +122,7 @@ Example: [PredicateTest](src/main/java/E/PredicateTest.java)
 
 <pre>
 @FunctionalInterface
-public interface Predicate<T> {
+public interface Predicate&lt;T&gt; {
     Boolean test(T t);
 }
 </pre>
@@ -133,7 +133,7 @@ The functional interfaces `Consumer`, `Predicate`, `Function` and `Operator` all
 
 <pre>
 @FunctionalInterface
-public interface BiConsumer<T, U> {
+public interface BiConsumer&lt;T, U&gt; {
     void accept(T t, U u);
 } 
 </pre>
@@ -144,7 +144,7 @@ Example: [BiConsumerTest](src/main/java/E/BiConsumerTest.java)
 
 <pre>
 @FunctionalInterface
-public interface BiPredicate<T, U> {
+public interface BiPredicate&lt;T, U&gt; {
     Boolean test (T t, U u);
 }
 </pre>
@@ -155,7 +155,7 @@ Example: [BiPredicateTest](src/main/java/E/BiPredicateTest.java)
 
 <pre>
 @FunctionalInterface
-public interface BiFunction<T, U, R> {
+public interface BiFunction&lt;T, U, R&gt; {
     R apply (T t, U u);
 }
 </pre>
@@ -166,7 +166,7 @@ Example: [BiFunctionTest](src/main/java/E/BiFunctionTest.java)
 
 <pre>
 @FunctionalInterface
-public interface BinaryOperator<T, T> {
+public interface BinaryOperator&lt;T, T&gt; {
     T apply (T t1, T t2);
 }
 </pre>
@@ -177,29 +177,49 @@ Example: [BinaryOperatorTest](src/main/java/E/BinaryOperatorTest.java)
 #### 8. Develop code that uses a method reference, including refactoring a lambda expression to a method reference
 A _method reference_ is a compact lambda expression for referring to an existing method.
 There are four types of method references:
-<table>
-    <tr>
-        <th>Method reference type</th>
-        <th>Format</th>
-    </tr>
-    <tr>
-        <td>Reference to a static method</td>
-        <td><code>ContainingClass::staticMethodName</code></td>
-    </tr>
-    <tr>
-        <td>Reference to an instance method of a particular type</td>
-        <td><code>containingObject::instanceMethodName</code></td>
-    </tr>
-    <tr>
-        <td>Reference to an instance method of an arbitrary method of a particular type</td>
-        <td><code>ContainingType::methodName</code></td>
-    </tr>
-    <tr>
-        <td>Reference to a constructor</td>
-        <td><code>Classname::new</code></td>
-    </tr>
-</table>
-...
+
+1\. Reference to a static method
+
+Format: <code>ContainingClass::staticMethodName</code>
+
+Example:
+<pre>
+Consumer&lt;List&lt;Integer&gt;&gt; lambda = list -> Collections.sort(list);
+Consumer&lt;List&lt;Integer&gt;&gt; methodRef = Collections::sort;
+</pre>
+
+2\. Reference to an instance method of a particular type
+
+Format: <code>containingObject::instanceMethodName</code>
+
+Example:
+<pre>
+String str = "abc";
+Predicate&lt;String&gt; lambda = s -> s.startsWith(str);
+Predicate&lt;String&gt; methodRef = str::startsWith;
+</pre>
+
+3\. Reference to an instance method of an arbitrary method of a particular type
+
+Format: <code>ContainingType::methodName</code>
+
+Example:
+<pre>
+Predicate&lt;String&gt; lambda = s -> s.isEmpty();
+Predicate&lt;String&gt; methodRef = String::isEmpty;
+</pre>
+
+4\. Reference to a constructor
+
+Format: <code>Classname::new</code>
+
+Example:
+<pre>
+Supplier&lt;ArrayList&gt; lambda = () -> new ArrayList<>();
+Supplier&lt;ArrayList&gt; methodRef = ArrayList::new;
+</pre>
+
+... <to do: ch. 4>
 
 ---
 Back to [index](README.md)
