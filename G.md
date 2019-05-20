@@ -4,7 +4,7 @@ Back to [index](README.md)
 # G. Lambda Cookbook
 #### 1. Develop code that uses Java SE 8 collection improvements, including Collection.removeIf(), List.replaceAll(), Map.computeIfAbsent(), and Map.computeIfPresent() methods
 
-The method `removeIf` makes it possible to specify what should be deleted in a collection using a block of code.
+The method `Collection.removeIf` makes it possible to specify what should be deleted in a collection using a block of code.
 Method signature:
 <pre>
 boolean removeIf(Predicate&lt;? super E&gt; filter)
@@ -15,7 +15,7 @@ List&lt;String&gt; numbers = Arrays.asList("One", "Two", "Three");
 numbers.removeIf(s -> s.startsWith("T")); // Removes "Two" and "Three"
 </pre>
 
-The method `replaceAll` applies a lambde expression to all elements in a list. The result replaces the current value of that element.
+The method `List.replaceAll` applies a lambda expression to all elements in a list. The result replaces the current value of that element.
 Method signature:
 <pre>
 void replaceAll(UnaryOperator&lt;E&gt; o)
@@ -27,19 +27,40 @@ integerList.replaceAll(i -> 2 * i);
 System.out.println(intList); // Returns [2, 4, 6]
 </pre>
 
-The method `forEach` uses a lambda expression to loop through a collection.
+The method `Map.computeIfPresent` uses the `BiFunction` on a Map element if the requested key is found.
 Method signature:
 <pre>
-void forEach(Consumer&lt;? super String&gt;)
-</pre>
-Example:
-<pre>
-List&lt;String&gt; numbers = Arrays.asList("One", "Two", "Three");
-numbers.forEach(s -> System.out.println(s)); // Using lambda expression
-numbers.forEach(System.out::println); // Using method reference
+V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)
 </pre>
 
-...
+Example:
+<pre>
+Map&lt;String, Integer&gt; scores = new HashMap<>();
+BiFunction&lt;String, Integer, Integer&gt mapper = (k, v) -> v + 1;
+scores.put("Harry", 10);
+scores.put("Dick", 10);
+scores.computeIfPresent("Harry", mapper);
+scores.computeIfPresent("Tom", mapper);
+System.out.println(scores); // {Harry=11, Dick=10}
+</pre>
+
+The method `Map.computeIfAbsent` uses the `Function` on a Map element if the requested key is not found or `null`.
+Method signature:
+<pre>
+V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)
+</pre>
+
+Example:
+<pre>
+Map&lt;String, Integer&gt; scores = new HashMap<>();
+Function&lt;String, Integer&gt; mapper = (k) -> 9;
+scores.put("Harry", 10);
+scores.put("Dick", null);
+scores.computeIfAbsent("Harry", mapper);
+scores.computeIfAbsent("Dick", mapper);
+scores.computeIfAbsent("Tom", mapper); // {Tom=9, Harry=10, Dick=9}
+</pre>
+
 #### 2. Develop code that uses Java SE 8 I/O improvements, including Files.find(), Files.walk(), and lines() methods
 ...
 #### 3. Use flatMap() methods in the Stream API
