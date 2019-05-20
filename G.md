@@ -61,6 +61,76 @@ scores.computeIfAbsent("Dick", mapper);
 scores.computeIfAbsent("Tom", mapper); // {Tom=9, Harry=10, Dick=9}
 </pre>
 
+Compute methods
+<table>
+    <tr>
+        <th>Scenario</th>
+        <th><code>computeIfPresent</code></th>
+        <th><code>computeIfAbsent</code></th>
+    </tr>
+    <tr>
+        <td>Key already in map</td>
+        <td>Result of function</td>
+        <td>No action</td>
+    </tr>
+    <tr>
+        <td>Key not already in map</td>
+        <td>No action</td>
+        <td>Result of function</td>
+    </tr>
+    <tr>
+        <td>Functional interface used</td>
+        <td><code>BiFunction</code>: takes key and existing value, returns new value</td>
+        <td><code>Function</code>: takes key and returns new value</td>
+    </tr>
+</table>
+
+Compute methods when `null`s are involved
+<table>
+    <tr>
+        <th>Key has</th>
+        <th>Mapping functions returns</th>
+        <th><code>computeIfPresent</code></th>
+        <th><code>computeIfAbsent</code></th>
+    </tr>
+    <tr>
+        <td><code>null</code> value in map</td>
+        <td><code>null</code></td>
+        <td>Do not change map</td>
+        <td>Do not change map</td>
+    </tr>
+    <tr>
+        <td><code>null</code> value in map</td>
+        <td>Not <code>null</code></td>
+        <td>Do not change map</td>
+        <td>Add key to map with mapping function result as value</td>
+    </tr>
+    <tr>
+        <td>Non-<code>null</code> value in map</td>
+        <td><code>null</code></td>
+        <td>Remove key from map</td>
+        <td>Do not change map</td>
+    </tr>
+    <tr>
+        <td>Non-<code>null</code> value in map</td>
+        <td>Not <code>null</code></td>
+        <td>Set key to mapping function result</td>
+        <td>Do not change map</td>
+    </tr>
+    <tr>
+        <td>Key not in map</td>
+        <td><code>null</code></td>
+        <td>Do not change map</td>
+        <td>Do not change map</td>
+    </tr>
+    <tr>
+        <td>Key not in map</td>
+        <td>Not <code>null</code></td>
+        <td>Do not change map</td>
+        <td>Add key to map with mapping function result as value</td>
+    </tr>
+</table>
+
 #### 2. Develop code that uses Java SE 8 I/O improvements, including Files.find(), Files.walk(), and lines() methods
 ...
 #### 3. Use flatMap() methods in the Stream API
