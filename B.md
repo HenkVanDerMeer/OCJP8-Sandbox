@@ -25,6 +25,8 @@ A stream pipeline has three parts:
 They use lazy evaluation, so the intermediate operations do not run until the terminal operation runs. 
 3. a _terminal operation_: returns a result. After the terminal operation completes the stream is no longer valid.
 
+_Reductions_ are a special type of terminal operation where all of the contents of the stream are combined into a single primitive or `Object`.
+
 Differences between intermediate and terminal operations
 <table>
     <tr>
@@ -116,6 +118,71 @@ Terminal stream operations
         <td>Yes</td>
     </tr>
 </table>
+
+The `allMatch()`, `anyMatch()` and `noneMatch()` methods search a stream and return information about how the stream pertains to the predicate.
+Method signatures:
+```
+boolean anyMatch(Predicate <? super T> predicate)
+boolean allMatch(Predicate <? super T> predicate)
+boolean noneMatch(Predicate <? super T> predicate)
+```
+Examples:
+```
+List<String> list = Arrays.asList("Harry", "Dick", "Tom");
+Predicate<String> length = string -> string.length() > 4;
+System.out.println(list.stream().anyMatch(length)); // Returns true
+System.out.println(list.stream().allMatch(length)); // Returns false
+System.out.println(list.stream().noneMatch(length)); // Returns false
+```
+
+Note that reuse of a predicate is possible, but reuse of a stream not; this will result in an `IllegalStateException`. 
+
+* <code>collect()</code>
+
+The <code>count()</code> method determines the number of elements in a finite stream. For an infinite stream it hangs.
+Method signature:
+```
+long count()
+```
+Examples:
+```
+Stream<String> finite = Stream.of("One", "Two", "Three");
+System.out.println(finite.count()); // Returns 3
+Stream<String> infinite = Stream.generate(() -> "Hi");
+System.out.println(infinite.count()); // Hangs
+```
+
+The <code>findAny()</code> and <code>findFirst()</code> methods return an element of the stream unless the stream is empty.
+If the stream is empty they return an empty `Optional`.
+Method signature:
+
+```
+Optional<T> findAny()
+Optional<T> findFirst()
+```
+Examples:
+```
+Stream<String> finite = Stream.of("One", "Two", "Three");
+finite.findAny().ifPresent(System.out::println); // Returns "One"
+Stream<String> infinite = Stream.generate(() -> "Hi");
+infinite.findFirst().ifPresent(System.out::println); // Returns "Hi"
+```
+The `forEach()` method is a terminal operation that loops through the elements of a stream.
+It can also be used for any `Collection`. Method signature:
+```
+void forEach(Consumer<? super T> action)
+```
+Examples:
+```
+Stream<String> finite = Stream.of("One", "Two", "Three");
+finite.forEach(System.out::println); // Returns "One", "Two", "Three"
+Stream<String> infinite = Stream.generate(() -> "Hi");
+infinite.forEach(System.out::println); // Hangs
+```
+* <code>min()</code> / <code>max()</code>
+
+* <code>reduce()</code>
+
 ...
 
 #### 3.	Filter a collection by using lambda expressions
