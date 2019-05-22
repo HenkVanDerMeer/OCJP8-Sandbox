@@ -93,7 +93,7 @@ Terminal stream operations
     </tr>
     <tr>
         <td><code>findAny()</code> / <code>findFirst()</code></td>
-        <td>Does not terminate</td>
+        <td>Terminates</td>
         <td><code>Optional&lt;T&gt;</code></td>
         <td>No</td>
     </tr>
