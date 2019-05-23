@@ -67,7 +67,8 @@ Stream<String> s1 = Stream.empty(); // Creates an empty stream
 Stream<String> s2 = Stream.of("Hi"); // Creates a stream with 1 element
 Stream<String> s3 = Arrays.asList(1, 2, 3).stream(); // Creates a stream with 3 elements
 ```
-Terminal stream operations
+
+##### 2.1 Terminal stream operations
 <table>
     <tr>
         <th>Method</th>
@@ -246,7 +247,92 @@ empty.reduce(op).ifPresent(System.out::println); // no output
 oneElement.reduce(op).ifPresent(System.out::println); // Returns 3
 threeElements.reduce(op).ifPresent(System.out::println); // Returns 90
 ```
-...
+##### 2.2 Intermediate stream operations
+The `filter()` method returns a Stream with elements that match a given expression.
+Method signature:
+```
+Stream<T> filter(Predicate<? super T> predicate)
+```
+Example:
+```
+Stream<String> string = Stream.of("One", "Two", "Three");
+string.filter(s -> s.startsWith("T")).forEach(System.out::println); // Returns [Two, Three]
+```
+
+The `distinct()` method returns a stream with duplicate values removed.
+Method signature:
+```
+Stream<T> distinct()
+```
+Example:
+```
+Stream<Integer> numbers = Stream.of(2, 2, 3, 1, 3, 2, 3, 1);
+numbers.distinct().forEach(System.out::println); // Returns 2, 3, 1
+```
+
+The `limit()` and `skip()` methods make a finite stream smaller, or make a finite stream out of an infinite stream.
+Method signatures:
+```
+Stream<T> limit(int maxSize)
+Stream<T> skip(int n)
+```
+Example:
+```
+Stream<Integer> s = Stream.iterate(1, n -> n + 1);
+s.skip(5).limit(2).forEach(System.out::print); // Returns 67
+```
+
+The `map()` method creates a one-to-one mapping from the elements in the stream to the elements of the next step in the stream.
+Method signature:
+```
+<R> Stream<R> map(Function<? super T, ? extends R> mapper)
+```
+Example:
+```
+Stream<String> names = Stream.of("Harry", "Dick", "Tom");
+names.map(String::length).forEach(System.out::print); // Returns 543
+```
+
+The `flatMap()` method takes each element in the stream and makes any elements it contains top-level elements in a single stream.
+Method signature:
+```
+<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)
+```
+Example:
+```
+List<String> names1 = Arrays.asList("Harry");
+List<String> names2 = Arrays.asList();
+List<String> names3 = Arrays.asList("Dick", "Tom");
+Stream<List<String>> allNames = Stream.of(names1, names2, names3);
+allNames.flatMap(s -> s.stream()).forEach(System.out::println); // Returns "Harry", "Dick", "Tom"
+```
+
+The `sorted()` method returns a stream with the elements sorted. Method signatures:
+```
+Stream<T> sorted()
+Stream<T> sorted(Comparator<? super T> comparator)
+```
+Example:
+```
+Stream<String> string = Stream.of("One", "Two", "Three");
+string.sorted().forEach(System.out::println); // Returns "One", "Three", "Two"
+```
+
+The `peek()` method allows performing a stream operation without actually changing the stream.
+Method signature:
+```
+Stream<T> peek(Consumer<? super T> action)
+```
+Example:
+```
+Stream<String> string = Stream.of("One", "Two", "Three");
+long count = string.filter(s -> s.startsWith("T")).peek(System.out::println).count(); // Returns "Two", "Three"
+System.out.println(count); // Returns 2
+```
+
+##### 2.3 Primitive streams
+
+##### 2.4 Collecting results
 
 #### 3.	Filter a collection by using lambda expressions
 ...
