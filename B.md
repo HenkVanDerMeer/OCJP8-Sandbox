@@ -144,7 +144,21 @@ Method signatures:
 <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)
 <R, A> R collect(Collector<? super T, A, R> collector)
 ```
-...
+Examples:
+```
+Stream<String> stream1 = Stream.of("w", "o", "l", "f");
+StringBuilder word = stream1.collect(StringBuilder::new,
+        StringBuilder::append, StringBuilder::append);
+System.out.println(word); // Returns "wolf"
+
+Stream<String> stream2 = Stream.of("w", "o", "l", "f");
+TreeSet<String> set1 = stream2.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+System.out.println(set1); // Returns [f, l, o, w]
+
+Stream<String> stream3 = Stream.of("w", "o", "l", "f");
+Set<String> set2 = stream3.collect(Collectors.toSet());
+System.out.println(set2); // Returns [f, w, l, o]
+```
 
 The <code>count()</code> method determines the number of elements in a finite stream. For an infinite stream it hangs.
 Method signature:
@@ -192,8 +206,25 @@ infinite.forEach(System.out::println); // Hangs
 List<Integer> numbers = Arrays.asList(41, 42, 43);
 numbers.forEach(System.out::println); // Returns 41, 42, 43
 ```
-* <code>min()</code> / <code>max()</code>
+The `min()` and `max()` methods use a custom comparator to find the smallest or largest value in a finite stream according to the given sort order.
+Method signatures:
+```
+Optional<T> min(<? super T> comparator)
+Optional<T> max(<? super T> comparator)
+```
+Examples:
+```
+Stream<String> s = Stream.of("Harry", "Dick", "Tom");
+Optional<String> maxLength = s.max((s1, s2) -> s1.length() - s2.length());
+maxLength.ifPresent(System.out::println); // Returns "Harry"
 
+Optional<?> minEmpty = Stream.empty().min((s1, s2) -> 0);
+minEmpty.ifPresent(System.out::println); // Returns nothing
+
+Stream<Integer> random = Stream.of(12, 42, 3, 15);
+Optional<Integer> maxNumber = random.max((s1, s2) -> s1 - s2);
+maxNumber.ifPresent(System.out::println); // Returns 42
+```
 The `reduce()` method combines a stream into a single object. Method signatures:
 ```
 T reduce(T identity, BinaryOperator<T> accumulator)
