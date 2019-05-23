@@ -137,7 +137,14 @@ System.out.println(list.stream().noneMatch(length)); // Returns false
 
 Note that reuse of a predicate is possible, but reuse of a stream not; this will result in an `IllegalStateException`. 
 
-* <code>collect()</code>
+The `collect()` method is a special type of reduction called a _mutable reduction_.
+It is more efficient than a regular reduction because the same mutable object is used while accumulating.
+Method signatures:
+```
+<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)
+<R, A> R collect(Collector<? super T, A, R> collector)
+```
+...
 
 The <code>count()</code> method determines the number of elements in a finite stream. For an infinite stream it hangs.
 Method signature:
@@ -148,6 +155,7 @@ Examples:
 ```
 Stream<String> finite = Stream.of("One", "Two", "Three");
 System.out.println(finite.count()); // Returns 3
+
 Stream<String> infinite = Stream.generate(() -> "Hi");
 System.out.println(infinite.count()); // Hangs
 ```
@@ -164,6 +172,7 @@ Examples:
 ```
 Stream<String> finite = Stream.of("One", "Two", "Three");
 finite.findAny().ifPresent(System.out::println); // Returns "One"
+
 Stream<String> infinite = Stream.generate(() -> "Hi");
 infinite.findFirst().ifPresent(System.out::println); // Returns "Hi"
 ```
@@ -176,13 +185,36 @@ Examples:
 ```
 Stream<String> finite = Stream.of("One", "Two", "Three");
 finite.forEach(System.out::println); // Returns "One", "Two", "Three"
+
 Stream<String> infinite = Stream.generate(() -> "Hi");
 infinite.forEach(System.out::println); // Hangs
+
+List<Integer> numbers = Arrays.asList(41, 42, 43);
+numbers.forEach(System.out::println); // Returns 41, 42, 43
 ```
 * <code>min()</code> / <code>max()</code>
 
-* <code>reduce()</code>
+The `reduce()` method combines a stream into a single object. Method signatures:
+```
+T reduce(T identity, BinaryOperator<T> accumulator)
+Optional<T> reduce(BinaryOperator<T> accumulator)
+<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
+```
 
+Examples:
+```
+Stream<String> stream = Stream.of("w", "o", "l", "f");
+String word = stream.reduce("", (s, c) -> s + c);
+System.out.println(word); // returns "wolf"
+
+BinaryOperator<Integer> op = (a, b) -> a * b;
+Stream<Integer> empty = Stream.empty();
+Stream<Integer> threeElements = Stream.of(3, 5, 6);
+Stream<Integer> oneElement = Stream.of(3);
+empty.reduce(op).ifPresent(System.out::println); // no output
+oneElement.reduce(op).ifPresent(System.out::println); // Returns 3
+threeElements.reduce(op).ifPresent(System.out::println); // Returns 90
+```
 ...
 
 #### 3.	Filter a collection by using lambda expressions
