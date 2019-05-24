@@ -350,6 +350,151 @@ infinite.limit(5)
 ```
 
 ##### 2.3 Primitive streams
+The primitive types `int`, `long` and `double` have their own equivalent for streams:
+- `IntStream`: used for the primitive types `byte`, `char`, `short` and `int`
+- `LongStream`: used for the primitive type `long`
+- `DoubleStream`: used for the primitive types `float` and `double`
+
+These primitive streams have convenience methods that cannot to executed using the wrapper class versions, because streams allow only one pass.
+For example calculating an average:
+```
+IntStream ints = IntStream.of(12, 21, 33);
+ints.average().ifPresent(System.out::println); // Returns 22.0
+
+IntStream empty = IntStream.empty();
+empty.average().ifPresent(System.out::println); // Returns nothing
+```
+Primitive streams can be created using the same methods like a regular `Stream`:
+- using the `of()` factory method
+```
+DoubleStream random = DoubleStream.generate(Math::random);
+```
+- using `generate()` or `iterate()` to create an infinite stream
+```
+DoubleStream fractions = DoubleStream.iterate(.5, d -> d / 2);
+```
+- using the `range` method can generate a range of numbers
+```
+IntStream.range(1, 4).forEach(System.out::println); // Returns 1, 2, 3
+IntStream.rangeClosed(1, 4).forEach(System.out::println); // Returns 1, 2, 3, 4
+```
+- mapping from another stream type; mapping methods:
+<table>
+    <tr>
+        <th>Source Stream class</th>
+        <th>To create <code>Stream</code></th>
+        <th>To create <code>DoubleStream</code></th>
+        <th>To create <code>IntStream</code></th>
+        <th>To create <code>LongStream</code></th>
+    </tr>
+    <tr>
+        <td><code>Stream</code></td>
+        <td><code>map()</code></td>
+        <td><code>mapToDouble()</code></td>
+        <td><code>mapToInt()</code></td>
+        <td><code>mapToLong()</code></td>
+    </tr>
+    <tr>
+        <td><code>DoubleStream</code></td>
+        <td><code>mapToObj()</code></td>
+        <td><code>map()</code></td>
+        <td><code>mapToInt()</code></td>
+        <td><code>mapToLong()</code></td>
+    </tr>
+    <tr>
+        <td><code>IntStream</code></td>
+        <td><code>mapToObj()</code></td>
+        <td><code>mapToDouble()</code></td>
+        <td><code>map()</code></td>
+        <td><code>mapToLong()</code></td>
+    </tr>
+    <tr>
+        <td><code>LongStream</code></td>
+        <td><code>mapToObj()</code></td>
+        <td><code>mapToDouble()</code></td>
+        <td><code>mapToInt()</code></td>
+        <td><code>map()</code></td>
+    </tr>
+</table>
+
+Function parameters when mapping between stream types
+<table>
+    <tr>
+        <th>Source Stream class</th>
+        <th>To create <code>Stream</code></th>
+        <th>To create <code>DoubleStream</code></th>
+        <th>To create <code>IntStream</code></th>
+        <th>To create <code>LongStream</code></th>
+    </tr>
+    <tr>
+        <td><code>Stream</code></td>
+        <td><code>Function</code></td>
+        <td><code>ToDoubleFunction</code></td>
+        <td><code>ToIntFunction</code></td>
+        <td><code>ToLongFunction</code></td>
+    </tr>
+    <tr>
+        <td><code>DoubleStream</code></td>
+        <td><code>DoubleFunction</code></td>
+        <td><code>DoubleUnaryOperator</code></td>
+        <td><code>DoubleToIntFunction</code></td>
+        <td><code>DoubleToLongFunction</code></td>
+    </tr>
+    <tr>
+        <td><code>IntStream</code></td>
+        <td><code>IntFunction</code></td>
+        <td><code>IntToDoubleFunction</code></td>
+        <td><code>IntUnaryOperator</code></td>
+        <td><code>IntToLongFunction</code></td>
+    </tr>
+    <tr>
+        <td><code>LongStream</code></td>
+        <td><code>LongFunction</code></td>
+        <td><code>LongToDoubleFunction</code></td>
+        <td><code>LongToIntFunction</code></td>
+        <td><code>LongUnaryOperator</code></td>
+    </tr>
+</table>
+
+Primitive streams have their own `Optional` types: `OptionalInt`, `OptionalLong` and `OptionalDouble`
+<table>
+    <tr>
+        <th></th>
+        <th><code>OptionalDouble</code></th>
+        <th><code>OptionalInt</code></th>
+        <th><code>OptionalLong</code></th>
+    </tr>
+    <tr>
+        <td>Getting as a primitive</td>
+        <td><code>getAsDouble()</code></td>
+        <td><code>getAsInt()</code></td>
+        <td><code>getAsLong()</code></td>
+    </tr>
+    <tr>
+        <td><code>orElseGet()</code> parameter type</td>
+        <td><code>DoubleSupplier</code></td>
+        <td><code>IntSupplier</code></td>
+        <td><code>LongSupplier</code></td>
+    </tr>
+    <tr>
+        <td>Return type of <code>max()</code></td>
+        <td><code>OptionalDouble</code></td>
+        <td><code>OptionalInt</code></td>
+        <td><code>OptionalLong</code></td>
+    </tr>
+    <tr>
+        <td>Return type of <code>sum()</code></td>
+        <td><code>double</code></td>
+        <td><code>int</code></td>
+        <td><code>long</code></td>
+    </tr>
+    <tr>
+        <td>Return type of <code>avg()</code></td>
+        <td><code>OptionalDouble</code></td>
+        <td><code>OptionalDouble</code></td>
+        <td><code>OptionalDouble</code></td>
+    </tr>
+</table>
 
 ##### 2.4 Collecting results
 
