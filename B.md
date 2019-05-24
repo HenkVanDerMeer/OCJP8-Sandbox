@@ -323,11 +323,17 @@ Method signature:
 ```
 Stream<T> peek(Consumer<? super T> action)
 ```
-Example:
+Examples:
 ```
 Stream<String> string = Stream.of("One", "Two", "Three");
 long count = string.filter(s -> s.startsWith("T")).peek(System.out::println).count(); // Returns "Two", "Three"
 System.out.println(count); // Returns 2
+
+Stream<Integer> infinite = Stream.iterate(1, x -> x + 1);
+infinite.limit(5)
+        .peek(System.out::print)
+        .filter(x -> x % 2 == 1)
+        .forEach(System.out::print); // Returns 11233455
 ```
 
 ##### 2.3 Primitive streams
