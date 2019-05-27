@@ -497,6 +497,7 @@ Primitive streams have their own `Optional` types: `OptionalInt`, `OptionalLong`
 </table>
 
 ##### 2.4 Collecting results
+Because only one terminal operation can be run in a stream many standard calculations (minimum, maximum, average, size, number of values) are always performed and collected in summary statistics.
 
 #### 3.	Filter a collection by using lambda expressions
 ...
