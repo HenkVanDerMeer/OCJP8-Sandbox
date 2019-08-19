@@ -503,7 +503,81 @@ IntStream ints = IntStream.rangeClosed(1,10);
 System.out.println(ints.summaryStatistics()); // Returns IntSummaryStatistics{count=10, sum=55, min=1, average=5,500000, max=10}
 ```
 ##### 2.4 Collecting results
+
+Different ways to collect the stream results:
+
+<table>
+    <tr>
+        <th>Collector</th>
+        <th>Description</th>
+        <th>Return value when passed to <code>collect</code></th>
+    </tr>
+    <tr>
+        <td><code>averagingDouble(ToDoubleFunction f), averagingInt(ToIntFunction f), averagingLong(ToLongFunction f)</code></td>
+        <td>Calculates the average for the three core primitive types</td>
+        <td><code>Double</code></td>
+    </tr>
+    <tr>
+        <td><code>counting()</code></td>
+        <td>Counts number of elements</td>
+        <td><code>Long</code></td>
+    </tr>
+    <tr>
+        <td><code>groupingBy(Function f), groupingBy(Function f, Collector dc), groupingBy(Function f, Supplier s, Collector dc)</code></td>
+        <td>Calculates a map grouping by the specified function with the optional type and optional downstream collector</td>
+        <td><code>Map&lt;K, List&lt;T&gt;&gt;</code></td>
+    </tr>
+    <tr>
+        <td><code>joining(), joining(CharSequence cs)</code></td>
+        <td>Creates a single <code>String</code> using <code>cs</code> as a delimiter between elements if one is specified</td>
+        <td><code>String</code></td>
+    </tr>
+    <tr>
+        <td><code>maxBy(Comparator c), minBy(Comparator c)</code></td>
+        <td>Finds the largest/smallest elements</td>
+        <td><code>Optional&lt;T&gt;</code></td>
+    </tr>
+    <tr>
+        <td><code>mapping(Function f, Collector dc)</code></td>
+        <td>Adds another level of collectors</td>
+        <td><code>Collector</code></td>
+    </tr>
+    <tr>
+        <td><code>partitioningBy(Predicate p), partitioningBy(Predicate p, Collector dc)</code></td>
+        <td>Creates a map grouping by the specified predicate with the optional further downstream collector</td>
+        <td><code>Map&lt;Boolean, List&lt;T&gt;&gt;</code></td>
+    </tr>
+    <tr>
+        <td><code>summarizingDouble(ToDoubleFunction f), summarizingInt(ToIntFunction f), summarizingLong(ToLongFunction f)</code></td>
+        <td>Calculates average, min, max, and so on</td>
+        <td><code>DoubleSummaryStatistics, IntSummaryStatistics, LongSummaryStatistics</code></td>
+    </tr>
+    <tr>
+        <td><code>summingDouble(ToDoubleFunction f), summingInt(ToIntFunction f), summingLong(ToLongFunction f)</code></td>
+        <td>Calculates the sum for the three core primitive types</td>
+        <td><code>Double, Integer, Long</code></td>
+    </tr>
+    <tr>
+        <td><code>toList(), toSet()</code></td>
+        <td>Creates an arbitrary type of list or set</td>
+        <td><code>List, Set</code></td>
+    </tr>
+    <tr>
+        <td><code>toCollection(Supplier s)</code></td>
+        <td>Creates a <code>Collection</code> of the specified type</td>
+        <td><code>Collection</code></td>
+    </tr>
+    <tr>
+        <td><code>toMap(Function k, Function v), toMap(Function k, Function v, BinaryOperator m), toMap(Function k, Function v, BinaryOperator m, Supplier s)</code></td>
+        <td>Creates a map using functions to map the keys, values, an optional merge function, and an optional type</td>
+        <td><code>Map</code></td>
+    </tr>
+</table>
+
+Examples:
+
 ...
+
 #### 3.	Filter a collection by using lambda expressions
 ...
 #### 4.	Identify the operations, on stream, that are lazy
