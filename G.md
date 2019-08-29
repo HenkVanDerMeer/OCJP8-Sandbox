@@ -135,7 +135,7 @@ Compute methods when `null`s are involved
 The `java.nio.file.Path` interface is the primary entry point for working with the NIO.2 API.
 It represents a hierarchical path on the storage system to a file or directory.
 
-![alt text](./src/main/resources/img/java.ico "Java icon")
+![alt text](./src/main/resources/img/NIO2.png "NIO.2 class and interface relationships")
 
 ...
 #### 3. Use flatMap() methods in the Stream API
