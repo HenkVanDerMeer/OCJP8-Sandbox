@@ -132,6 +132,11 @@ Compute methods when `null`s are involved
 </table>
 
 #### 2. Develop code that uses Java SE 8 I/O improvements, including Files.find(), Files.walk(), and lines() methods
+The `java.nio.file.Path` interface is the primary entry point for working with the NIO.2 API.
+It represents a hierarchical path on the storage system to a file or directory.
+
+![alt text](https://github.com/HenkVanDerMeer/OCJP8-Sandbox/java.ico "Java icon")
+
 ...
 #### 3. Use flatMap() methods in the Stream API
 ...
