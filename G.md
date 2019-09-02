@@ -134,6 +134,13 @@ Compute methods when `null`s are involved
 #### 2. Develop code that uses Java SE 8 I/O improvements, including Files.find(), Files.walk(), and lines() methods
 The `java.nio.file.Path` interface is the primary entry point for working with the NIO.2 API.
 It represents a hierarchical path on the storage system to a file or directory.
+Note that a  `Path` object  is not a file but a representation of a location (file, directory or link) within the file system!
+
+Examples:
+<pre>
+Path absFile = Paths.get("C:\\Windows\\explorer.exe");
+Path relFile = Paths.get("some/subdir/test.txt");
+</pre>
 
 ![alt text](./src/main/resources/img/NIO2.png "NIO.2 class and interface relationships")
 
