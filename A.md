@@ -88,7 +88,7 @@ public class Tiger implements Sprint {
 
 The annotation `@FunctionalInterface` is optional, but will throw an exception if the interface is not a functional interface.
 
-#### 3. Describe a lambda expression; refactor the code that uses an anonymous inner class to use a lambda expression; describe type inference and target typing
+#### 3a. Describe a lambda expression
 A *lambda expression* is a block of code that gets passed around, like an anonymous method. It has 3 parts:
 * A parameter list containing zero or more parameters; parameter types are optional, the list is wrapped in parentheses that can be omitted only if there is exactly one parameter and the parameter type is not specified. If a parameter type is specified, it must be specified for all parameters.
 * An arrow operator `->`
@@ -113,6 +113,10 @@ d -> {return d.quack();}
 (a, b) -> { int a = 0; return 5; } // DOES NOT COMPILE
 ```
 
+#### 3b. Refactor the code that uses an anonymous inner class to use a lambda expression
+... <to do: ch. 4>
+
+#### 3c. Describe type inference and target typing
 ... <to do: ch. 4>
 
 ---
