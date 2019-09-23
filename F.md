@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [E. Using Built-in Lambda Types](E.md)
+
+[G. Lambda Cookbook](G.md) &gt;
+
 ---
 # F. Collection Operations with Lambda
 #### 1. Develop code to extract data from an object by using the map() method
@@ -64,3 +68,7 @@ Optional o = Optional.ofNullable(value);
 
 ---
 Back to [index](README.md)
+
+&lt; [E. Using Built-in Lambda Types](E.md)
+
+[G. Lambda Cookbook](G.md) &gt;

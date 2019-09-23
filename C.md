@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [B. Java Collections and Streams with Lambdas](B.md)
+
+[D. Method Enhancements](D.md) &gt;
+
 ---
 # C. Parallel Streams
 #### 1. Develop code that uses parallel streams
@@ -9,3 +13,7 @@ Back to [index](README.md)
 
 ---
 Back to [index](README.md)
+
+&lt; [B. Java Collections and Streams with Lambdas](B.md)
+
+[D. Method Enhancements](D.md) &gt;

@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [D. Method Enhancements](D.md)
+
+[F. Collection Operations with Lambda](F.md) &gt;
+
 ---
 # E. Using Built-in Lambda Types
 
@@ -223,3 +227,7 @@ Supplier&lt;ArrayList&gt; methodRef = ArrayList::new;
 
 ---
 Back to [index](README.md)
+
+&lt; [D. Method Enhancements](D.md)
+
+[F. Collection Operations with Lambda](F.md) &gt;

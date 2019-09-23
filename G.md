@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [F. Collection Operations with Lambda](F.md)
+
+[H. Use Java SE 8 Date/Time API](H.md) &gt;
+
 ---
 # G. Lambda Cookbook
 #### 1. Develop code that uses Java SE 8 collection improvements, including Collection.removeIf(), List.replaceAll(), Map.computeIfAbsent(), and Map.computeIfPresent() methods
@@ -152,3 +156,7 @@ Path relFile = Paths.get("some/subdir/test.txt");
 
 ---
 Back to [index](README.md)
+
+&lt; [F. Collection Operations with Lambda](F.md)
+
+[H. Use Java SE 8 Date/Time API](H.md) &gt;

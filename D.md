@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [C. Parallel Streams](C.md)
+
+[E. Using Built-in Lambda Types](E.md) &gt;
+
 ---
 # D. Method Enhancements
 #### 1. Add static methods to interfaces
@@ -42,3 +46,7 @@ Note: Java fails to compile if a class or interface inherits two `default` metho
 
 ---
 Back to [index](README.md)
+
+&lt; [C. Parallel Streams](C.md)
+
+[E. Using Built-in Lambda Types](E.md) &gt;

@@ -1,4 +1,6 @@
-Back to [index](README.md)
+< Back to [index](README.md)
+
+[B. Java Collections and Streams with Lambdas](B.md) &gt;
 
 ---
 ## A. Lambda Expressions
@@ -106,3 +108,5 @@ d -> {return d.quack();}
 
 ---
 Back to [index](README.md)
+
+[B. Java Collections and Streams with Lambdas](B.md) &gt;

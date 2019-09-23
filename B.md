@@ -1,5 +1,9 @@
 Back to [index](README.md)
 
+&lt; [A. Lambda Expressions](A.md)
+
+[C. Parallel Streams](C.md) &gt;
+
 ---
 ## B. Java Collections and Streams with Lambdas
 #### 1.	Develop code that iterates a collection by using the forEach() method and method chaining
@@ -585,3 +589,7 @@ Examples:
 
 ---
 Back to [index](README.md)
+
+&lt; [A. Lambda Expressions](A.md)
+
+[C. Parallel Streams](C.md) &gt;
