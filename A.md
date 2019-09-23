@@ -90,7 +90,7 @@ The annotation `@FunctionalInterface` is optional, but will throw an exception i
 
 #### 3. Describe a lambda expression; refactor the code that uses an anonymous inner class to use a lambda expression; describe type inference and target typing
 A *lambda expression* is a block of code that gets passed around, like an anonymous method. It has 3 parts:
-* A parameter list containing zero or more parameters; parameter types are optional, the list is wrapped in parentheses that can be omitted only if there is exactly one parameter and the parameter type is not specified
+* A parameter list containing zero or more parameters; parameter types are optional, the list is wrapped in parentheses that can be omitted only if there is exactly one parameter and the parameter type is not specified. If a parameter type is specified, it must be specified for all parameters.
 * An arrow operator `->`
 * The body calling a single method and returning the result of that method; curly braces are optional, unless the body contains more than one statement. In that case all statements must end with a semicolon.
 
@@ -104,6 +104,15 @@ d -> {return d.quack();}
 (String s, int z) -> { return s.length()+z; }
 (a, b, c) -> a.getName()
 ```
+* Not all specified parameters have to be used; example:
+```
+(y, z) -> { int x=1; return y+10; } // COMPILES
+```
+* Redeclaring a parameter is not allowed; example:
+```
+(a, b) -> { int a = 0; return 5; } // DOES NOT COMPILE
+```
+
 ... <to do: ch. 4>
 
 ---
