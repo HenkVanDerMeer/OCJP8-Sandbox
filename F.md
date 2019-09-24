@@ -64,11 +64,11 @@ New Java 8 `Map` methods:
 * `computeIfPresent()`: see [G. Lambda Cookbook](G.md)
 * `computeIfAbsent()`: see [G. Lambda Cookbook](G.md)
 
-The `Stream` interface has a map() method, see [B.2.2 Intermediate stream operations](B.md#22-intermediate-stream-operations). 
+The `Stream` interface has a map() method, see [B.2.2 Intermediate stream operations](B.md#22-intermediate-stream-operations).
 
-...
 #### 2. Search for data by using methods such as `findFirst()`, `findAny()`, `anyMatch()`, `allMatch()`, and `noneMatch()`
-...
+See [B.2.1 Terminal stream operations](B.md#21-terminal-stream-operations).
+
 #### 3. Describe the unique characteristics of the `Optional` class
 An `Optional` is an object that may or may not be empty.
 If an `Optional` is empty it returns the value `Optional.empty`. If not, the value can be retrieved using `opt.get()`.
