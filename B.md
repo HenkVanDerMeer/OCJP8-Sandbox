@@ -6,7 +6,7 @@ Back to [index](README.md)
 
 ---
 ## B. Java Collections and Streams with Lambdas
-#### 1.	Develop code that iterates a collection by using the forEach() method and method chaining
+#### 1.	Develop code that iterates a collection by using the `forEach()` method and method chaining
 The method `forEach` uses a lambda expression to loop through a collection.
 Method signature:
 ```
@@ -32,7 +32,7 @@ Stream.generate(() -> "Test")
    .forEach(System.out::println); // Returns "Test", "Test"
 ``` 
 
-#### 2.	Describe the Stream interface and pipelines
+#### 2.	Describe the `Stream` interface and pipelines
 A _stream_ in Java is a sequence of data. A _stream pipeline_ is the operations that run on a stream to produce a result.
 Streams can be finite or infinite.
 

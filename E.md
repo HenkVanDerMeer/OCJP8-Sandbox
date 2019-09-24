@@ -7,7 +7,7 @@ Back to [index](README.md)
 ---
 # E. Using Built-in Lambda Types
 
-#### 1. Describe the interfaces of the [java.util.function](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html) package
+#### 1. Describe the interfaces of the [`java.util.function`](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html) package
 <table>
     <tr>
         <th>Functional interfaces</th>
@@ -71,7 +71,7 @@ Back to [index](README.md)
     </tr>
 </table>
 
-#### 2. Develop code that uses the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface
+#### 2. Develop code that uses the [`Function`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface
 The `Function` interface takes a value of any type and returns a value of any (possibly the same) type.
 
 Example: [FunctionTest](src/main/java/E/FunctionTest.java)
@@ -83,7 +83,7 @@ public interface Function&lt;T, R&gt; {
 }
 </pre>
 
-#### 3. Develop code that uses the [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) interface
+#### 3. Develop code that uses the [`Consumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) interface
 The `Consumer` interface takes a single value of any type and returns `void`.
 
 Example: [ConsumerTest](src/main/java/E/ConsumerTest.java)
@@ -95,7 +95,7 @@ public interface Consumer&lt;T&gt; {
 }
 </pre>
 
-#### 4. Develop code that uses the [Supplier](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html) interface
+#### 4. Develop code that uses the [`Supplier`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html) interface
 The `Supplier` interface supplies values without taking any input.
 
 Example: [SupplierTest](src/main/java/E/SupplierTest.java)
@@ -107,7 +107,7 @@ public interface Supplier&lt;T&gt; {
 }
 </pre>
 
-#### 5. Develop code that uses the [UnaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html) interface
+#### 5. Develop code that uses the [`UnaryOperator`](https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html) interface
 The `UnaryOperator` interface takes any type and returns a value of the same type (for example: incrementing by 1).
 
 Example: [UnaryOperatorTest](src/main/java/E/UnaryOperatorTest.java)
@@ -119,7 +119,7 @@ public interface UnaryOperator&lt;T&gt; extends Function&lt;T, T&gt; {
 }
 </pre>
 
-#### 6. Develop code that uses the [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) interface
+#### 6. Develop code that uses the [`Predicate`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) interface
 The `Predicate` interface takes any type and returns a boolean.
 
 Example: [PredicateTest](src/main/java/E/PredicateTest.java)
@@ -131,7 +131,7 @@ public interface Predicate&lt;T&gt; {
 }
 </pre>
 
-#### 7. Develop code that uses the primitive and binary variations of the base interfaces of the java.util.function package
+#### 7. Develop code that uses the primitive and binary variations of the base interfaces of the `java.util.function` package
 The functional interfaces `Consumer`, `Predicate`, `Function` and `Operator` all have variants that take 2 parameters instead of 1:
 - `BiConsumer`
 

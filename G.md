@@ -6,7 +6,7 @@ Back to [index](README.md)
 
 ---
 # G. Lambda Cookbook
-#### 1. Develop code that uses Java SE 8 collection improvements, including Collection.removeIf(), List.replaceAll(), Map.computeIfAbsent(), and Map.computeIfPresent() methods
+#### 1. Develop code that uses Java SE 8 collection improvements, including `Collection.removeIf()`, `List.replaceAll()`, `Map.computeIfAbsent()`, and `Map.computeIfPresent()` methods
 
 The method `Collection.removeIf` makes it possible to specify what should be deleted in a collection using a block of code.
 Method signature:
@@ -135,7 +135,7 @@ Compute methods when `null`s are involved
     </tr>
 </table>
 
-#### 2. Develop code that uses Java SE 8 I/O improvements, including Files.find(), Files.walk(), and lines() methods
+#### 2. Develop code that uses Java SE 8 I/O improvements, including `Files.find()`, `Files.walk()`, and `lines()` methods
 The `java.nio.file.Path` interface is the primary entry point for working with the NIO.2 API.
 It represents a hierarchical path on the storage system to a file or directory.
 Note that a  `Path` object  is not a file but a representation of a location (file, directory or link) within the file system!
@@ -149,9 +149,9 @@ Path relFile = Paths.get("some/subdir/test.txt");
 ![alt text](./src/main/resources/img/NIO2.png "NIO.2 class and interface relationships")
 
 ...
-#### 3. Use flatMap() methods in the Stream API
+#### 3. Use `flatMap()` methods in the Stream API
 ...
-#### 4. Develop code that creates a stream by using the Arrays.stream() and IntStream.range() methods
+#### 4. Develop code that creates a stream by using the `Arrays.stream()` and `IntStream.range()` methods
 ...
 
 ---

@@ -6,7 +6,7 @@ Back to [index](README.md)
 
 ---
 # F. Collection Operations with Lambda
-#### 1. Develop code to extract data from an object by using the map() method
+#### 1. Develop code to extract data from an object by using the `map()` method
 A `map` is a collection that maps keys to values, with no duplicate keys allowed.
 The elements in a map are key/value pairs.
 
@@ -67,9 +67,9 @@ New Java 8 `Map` methods:
 The `Stream` interface has a map() method, see [B.2.2 Intermediate stream operations](B.md#22-intermediate-stream-operations). 
 
 ...
-#### 2. Search for data by using methods such as findFirst(), findAny(), anyMatch(), allMatch(), and noneMatch()
+#### 2. Search for data by using methods such as `findFirst()`, `findAny()`, `anyMatch()`, `allMatch()`, and `noneMatch()`
 ...
-#### 3. Describe the unique characteristics of the Optional class
+#### 3. Describe the unique characteristics of the `Optional` class
 An `Optional` is an object that may or may not be empty.
 If an `Optional` is empty it returns the value `Optional.empty`. If not, the value can be retrieved using `opt.get()`.
 `Optional.of(value)` stores a value in an `Optional`, and `opt.isPresent()` tests if an `Optional` is empty or not.
@@ -118,11 +118,11 @@ Optional o = Optional.ofNullable(value);
     </tr>
 </table>
 
-#### 4. Perform calculations by using Java Stream methods, such as count(), max(), min(), average(), and sum()
+#### 4. Perform calculations by using Java Stream methods, such as `count()`, `max()`, `min()`, `average()`, and `sum()`
 ...
 #### 5. Sort a collection by using lambda expressions
 ...
-#### 6. Develop code that uses the Stream.collect() method and Collectors class methods, such as averagingDouble(), groupingBy(), joining(), and partitioningBy()
+#### 6. Develop code that uses the `Stream.collect()` method and `Collectors` class methods, such as `averagingDouble()`, `groupingBy()`, `joining()`, and `partitioningBy()`
 ...
 
 ---
