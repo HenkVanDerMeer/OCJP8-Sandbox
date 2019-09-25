@@ -59,8 +59,28 @@ The elements in a map are key/value pairs.
 </table> 
 
 New Java 8 `Map` methods:
-* `putIfAbsent(K key, V value)`: sets a value in the map, but skips it if the value is already set to a non-<code>null</code> value
-* `merge()`: uses a BiFunction to apply to a value of a map entry
+* `putIfAbsent(K key, V value)`: sets a value in the map, but skips it if the value is already set to a non-<code>null</code> value; example:
+```
+Map<String, Integer> scores = new HashMap<>();
+scores.put("Harry", 8);
+scores.put("Dick", null);
+scores.putIfAbsent("Harry", 9);
+scores.putIfAbsent("Dick", 9);
+scores.putIfAbsent("Tom", 9);
+scores.forEach(System.out::println); // {Tom=9, Harry=8, Dick=9}
+```
+* `merge()`: uses a BiFunction to apply to a value of a map entry; example:
+```
+Map<String, Integer> scores = new HashMap<>();
+scores.put("Harry", 8);
+scores.put("Dick", null);
+scores.put("Tom", 3);
+BiFunction<Integer, Integer, Integer> bestScore = (s1, s2) -> s1 > s2 ? s1 : s2;
+scores.merge("Harry", 6, bestScore);
+scores.merge("Dick", 6, bestScore);
+scores.merge("Tom", 6, bestScore);
+System.out.println(scores); // {Tom=6, Harry=8, Dick=6}
+```
 * `computeIfPresent()`: see [G. Lambda Cookbook](G.md)
 * `computeIfAbsent()`: see [G. Lambda Cookbook](G.md)
 
