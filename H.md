@@ -12,7 +12,7 @@ The `java.time` package contains the following Java 8 date and time classes:
 * `LocalDateTime`: Contains both a date and time (e.g. '2019-10-01T09:00:00.000')
 * `ZonedDateTime`: Contains both a date and time including a time zone (e.g. '2019-10-01T09:00:00.000+02:00[Europe/Berlin]')
 
-Each of these have a static method `now()` which gives the current date and/or time:
+Each of these are immutable and threadsafe, and have a static method `now()` which gives the current date and/or time:
 ```
 System.out.println(LocalDate.now());
 System.out.println(LocalTime.now());
