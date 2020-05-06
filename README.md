@@ -46,3 +46,6 @@ Summary with several code snippets to prepare for the Oracle exam [Upgrade Java 
 ##### [1. Create and manage date- and time-based events, including a combination of date and time in a single object, by using `LocalDate`, `LocalTime`, `LocalDateTime`, `Instant`, `Period`, and `Duration`](H.md#1-create-and-manage-date--and-time-based-events-including-a-combination-of-date-and-time-in-a-single-object-by-using-localdate-localtime-localdatetime-instant-period-and-duration)
 ##### [2. Work with dates and times across time zones and manage changes resulting from daylight savings, including Format date and times values](H.md#2-work-with-dates-and-times-across-time-zones-and-manage-changes-resulting-from-daylight-savings-including-format-date-and-times-values)
 ##### [3. Define, create, and manage date- and time-based events using `Instant`, `Period`, `Duration`, and `TemporalUnit`](H.md#3-define-create-and-manage-date--and-time-based-events-using-instant-period-duration-and-temporalunit)
+
+Oops... this upgrade exam seems to be unavailable :-(
+Maybe try [this one](https://education.oracle.com/upgrade-ocp-java-6-7-8-to-java-se-11-developer/pexam_1Z0-817)
